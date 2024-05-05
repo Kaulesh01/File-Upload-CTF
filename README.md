@@ -634,13 +634,13 @@ Nmap done: 1 IP address (1 host up) scanned in 8.20 seconds
 
 Here it just say “There is Something wrong with me”, Let’s check from browser. 
 
-![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200%202fa6fa656aca4844837a63e2ba792ee4/Untitled.png)
+![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200/Untitled.png)
 
 It looks like it just a normal apache2 server’s default page , there might be chance of something else or we can  find in source code or directory traversal attack
 
 [https://www.notion.so](https://www.notion.so)
 
-![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200%202fa6fa656aca4844837a63e2ba792ee4/Untitled%201.png)
+![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200/Untitled%201.png)
 
 🤔 nahh!! it just inner thought of mine.
 
@@ -874,21 +874,21 @@ here we got 3 endpoint from scanning application,
 
 index page:
 
-![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200%202fa6fa656aca4844837a63e2ba792ee4/Untitled%202.png)
+![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200/Untitled%202.png)
 
 /upload  
 
-![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200%202fa6fa656aca4844837a63e2ba792ee4/Untitled%203.png)
+![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200/Untitled%203.png)
 
 /uploads  
 
-![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200%202fa6fa656aca4844837a63e2ba792ee4/Untitled%204.png)
+![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200/Untitled%204.png)
 
 here just it can get interesting with 403 code and it says that it’s a storage for uploaded file. which means we can get file by just visiting /uploads/file-name
 
 Let’s explore source codes.
 
-![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200%202fa6fa656aca4844837a63e2ba792ee4/Untitled%205.png)
+![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200/Untitled%205.png)
 
 From this page we got a hint for further firring!!
 
@@ -1009,7 +1009,7 @@ function printit ($string) {
 
 Let’s try upload this missile on this application server
 
-![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200%202fa6fa656aca4844837a63e2ba792ee4/Untitled%206.png)
+![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200/Untitled%206.png)
 
 Ohh🙀!! 
 
@@ -1017,15 +1017,15 @@ Here is problem. It’s not that I build easy this for you , you just have to be
 
 let’s start burp for this request and try other extension for this like php, .php2, .php3, .php4, .php5, .php6, .php7, .phps, .pht, .phtm in burp intruder.
 
-![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200%202fa6fa656aca4844837a63e2ba792ee4/Untitled%207.png)
+![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200/Untitled%207.png)
 
-![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200%202fa6fa656aca4844837a63e2ba792ee4/Untitled%208.png)
+![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200/Untitled%208.png)
 
-![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200%202fa6fa656aca4844837a63e2ba792ee4/Untitled%209.png)
+![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200/Untitled%209.png)
 
 Booya!! We got “php7” extension. which can be used to upload our rev-shell , upload rev-shell with php7 extension , and access it through with /uploads/rev-filename. Hope we get connection!!
 
-![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200%202fa6fa656aca4844837a63e2ba792ee4/Untitled%2010.png)
+![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200/Untitled%2010.png)
 
 ## Foothold Accessed!!
 
@@ -1033,7 +1033,7 @@ up until now  it’s important to get foothold on target machine after that work
 
 ### First flag:
 
-![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200%202fa6fa656aca4844837a63e2ba792ee4/Untitled%2011.png)
+![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200/Untitled%2011.png)
 
 > VEhNeyQkX1lvdV9nb25lX0NyYXp5ISFfJCR9IA==
 > 
@@ -1047,7 +1047,7 @@ which is form of base64 decrypt and you will get:
 
 which is root flag so we need to privilege escalate to root .
 
-![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200%202fa6fa656aca4844837a63e2ba792ee4/Untitled%2012.png)
+![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200/Untitled%2012.png)
 
 here we can accesses VIM with sudo without password. 
 
@@ -1055,7 +1055,7 @@ here we can accesses VIM with sudo without password.
 
 for this methos we are going to use gtfobins methods here search for vim and you get this .
 
-![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200%202fa6fa656aca4844837a63e2ba792ee4/Untitled%2013.png)
+![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200/Untitled%2013.png)
 
 command:
 
@@ -1063,11 +1063,11 @@ command:
 sudo vim -c ':!/bin/sh'
 ```
 
-![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200%202fa6fa656aca4844837a63e2ba792ee4/Untitled%2014.png)
+![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200/Untitled%2014.png)
 
 now we got access to the root and we are going for root flag.
 
-![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200%202fa6fa656aca4844837a63e2ba792ee4/Untitled%2015.png)
+![Untitled](Official%20Writeup%20-%20Simple%20CTF%202%200/Untitled%2015.png)
 
 > 54 48 4D 7B 24 24 5F 59 6F 75 5F 67 6F 6E 65 5F 50 79 63 68 6F 21 21 5F 24 24 7D
 > 
